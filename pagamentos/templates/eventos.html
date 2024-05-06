@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block body%}
+
+    <div class="container">
+
+        <h1>Eventos</h1>
+        <table class="table table-striped vertical-align">
+
+            <tr>
+              <th scope="col">id</th>
+              <th scope="col">Nome</th>
+              <th scope="col">E-mail</th>
+              <th scope="col">Status</th>
+              <th scope="col">Valor</th>
+              <th scope="col">Forma Pagamento</th>
+              <th scope="col">Parcelas</th>
+              <th scope="col">Resolução</th>
+            </tr>
+        </table>
+            {% for evento in lista_eventos %}
+                <table class="table table-striped " >
+                          <tbody>
+                            <tr>
+                              <th scope="row ">{{ evento.id }}</th>
+                              <td>{{ evento.nome }}</td>
+                              <td>{{ evento.email }}</td>
+                              <td>{{ evento.status }}</td>
+                              <td>{{ evento.valor }}</td>
+                              <td>{{ evento.forma_pagamento }}</td>
+                              <td>{{ evento.parcelas }}</td>
+                              <td>{{ evento.resposta }}</td>
+                            </tr>
+                          </tbody>
+                </table>
+            {% endfor %}
+    </div>
+
+
+{% endblock %}

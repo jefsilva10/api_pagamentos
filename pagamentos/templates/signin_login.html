@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+
+{% block body%}
+
+    <div class="container">
+        <h1>Entre ou Cadastre-se</h1>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <legend>Entrar</legend>
+                <form method="POST" action="" class="border p-4 mt-2">
+                    {{ form_entrar.csrf_token }}
+                    <fieldset>
+                        <div class="form-group">
+                            {{ form_entrar.email.label(class="form-control-label") }}
+                            {% if form_entrar.email.errors %}
+                                {{ form_entrar.email(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form_entrar.email.errors %}
+                                    {{ error }}
+                                {% endfor%}
+                            </div>
+                            {% else%}
+                                {{ form_entrar.email(class="form-control") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            {{ form_entrar.senha.label(class="form-control-label") }}
+                            {% if form_entrar.senha.errors %}
+                                {{ form_entrar.senha(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form_entrar.senha.errors %}
+                                    {{ error }}
+                                {% endfor%}
+                            </div>
+                            {% else%}
+                                {{ form_entrar.senha(class="form-control") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            {{ form_entrar.lembrar_dados.label(class="form-check-label") }}
+                            {{ form_entrar.lembrar_dados(class="form-check-input") }}
+                        </div>
+                    </fieldset>
+                    {{ form_entrar.botao_entrar(class="btn btn-secondary mt-2")}}
+                </form>
+            </div>
+            <div class="col">
+                <legend>Cadastro</legend>
+                <form method="POST" action="" class="border p-4 mt-2">
+                    {{ form_cadastrar.csrf_token }}
+
+                    <fieldset>
+                        <div class="form-group">
+                            {{ form_cadastrar.username.label(class="form-control-label") }}
+                            {% if form_cadastrar.username.errors %}
+                                {{ form_cadastrar.username(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form_cadastrar.username.errors %}
+                                    {{ error }}
+                                {% endfor%}
+                            </div>
+                            {% else%}
+                                {{ form_cadastrar.username(class="form-control") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            {{ form_cadastrar.email.label(class="form-control-label") }}
+                            {% if form_cadastrar.email.errors %}
+                                {{ form_cadastrar.email(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form_cadastrar.email.errors %}
+                                    {{ error }}
+                                {% endfor%}
+                            </div>
+                            {% else%}
+                                {{ form_cadastrar.email(class="form-control") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            {{ form_cadastrar.senha.label(class="form-control-label") }}
+                            {% if form_cadastrar.senha.errors %}
+                                {{ form_cadastrar.senha(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form_cadastrar.senha.errors %}
+                                    {{ error }}
+                                {% endfor%}
+                            </div>
+                            {% else%}
+                                {{ form_cadastrar.senha(class="form-control") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            {{ form_cadastrar.confirmacao_senha.label(class="form-control-label") }}
+                            {% if form_cadastrar.confirmacao_senha.errors %}
+                                {{ form_cadastrar.confirmacao_senha(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form_cadastrar.confirmacao_senha.errors %}
+                                    {{ error }}
+                                {% endfor%}
+                            </div>
+                            {% else%}
+                                {{ form_cadastrar.confirmacao_senha(class="form-control") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            {{ form_cadastrar.token.label(class="form-control-label") }}
+                            {% if form_cadastrar.token.errors %}
+                                {{ form_cadastrar.token(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form_cadastrar.token.errors %}
+                                    {{ error }}
+                                {% endfor%}
+                            </div>
+                            {% else%}
+                                {{ form_cadastrar.token(class="form-control") }}
+                            {% endif %}
+                        </div>
+                    </fieldset>
+
+                    {{ form_cadastrar.botao_cadastrar (class="btn btn-secondary mt-3")}}
+
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+
+
+{% endblock %}
